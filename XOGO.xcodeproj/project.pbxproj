@@ -8,20 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		350433E32227C12D00BA1DFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350433E22227C12D00BA1DFA /* AppDelegate.swift */; };
-		350433E52227C12D00BA1DFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350433E42227C12D00BA1DFA /* ViewController.swift */; };
+		350433E52227C12D00BA1DFA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350433E42227C12D00BA1DFA /* LoginViewController.swift */; };
 		350433E82227C12D00BA1DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350433E62227C12D00BA1DFA /* Main.storyboard */; };
 		350433EA2227C12F00BA1DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350433E92227C12F00BA1DFA /* Assets.xcassets */; };
 		350433ED2227C12F00BA1DFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350433EB2227C12F00BA1DFA /* LaunchScreen.storyboard */; };
+		35638F1C2228F2D900CD8506 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F1B2228F2D900CD8506 /* Validators.swift */; };
+		35638F1E2228F49200CD8506 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F1D2228F49200CD8506 /* UITextField+Extensions.swift */; };
+		35638F24222909E600CD8506 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F23222909E600CD8506 /* HomeViewController.swift */; };
+		3565EA20222927B800E54F22 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA1E222927B800E54F22 /* MenuViewController.swift */; };
+		3565EA2422293D2200E54F22 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2322293D2200E54F22 /* AccountViewController.swift */; };
+		3565EA2622293D2E00E54F22 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2522293D2E00E54F22 /* LibraryViewController.swift */; };
+		3565EA2822293D3C00E54F22 /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2722293D3C00E54F22 /* PlaylistsViewController.swift */; };
+		3565EA2A22293D4800E54F22 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2922293D4800E54F22 /* PlayersViewController.swift */; };
+		3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */; };
+		3565EA2E22293D6600E54F22 /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */; };
+		358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F39642227E3E400EECB43 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		350433DF2227C12D00BA1DFA /* XOGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XOGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		350433E22227C12D00BA1DFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		350433E42227C12D00BA1DFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		350433E42227C12D00BA1DFA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		350433E72227C12D00BA1DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		350433E92227C12F00BA1DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350433EC2227C12F00BA1DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350433EE2227C12F00BA1DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35638F1B2228F2D900CD8506 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		35638F1D2228F49200CD8506 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		35638F23222909E600CD8506 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3565EA1E222927B800E54F22 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		3565EA2322293D2200E54F22 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3565EA2522293D2E00E54F22 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		3565EA2722293D3C00E54F22 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
+		3565EA2922293D4800E54F22 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
+		3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
+		358F39642227E3E400EECB43 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +76,57 @@
 		350433E12227C12D00BA1DFA /* XOGO */ = {
 			isa = PBXGroup;
 			children = (
+				3565EA2222293CEE00E54F22 /* SideMenuViewControllers */,
+				3565EA2122293CDD00E54F22 /* HomeViewController */,
+				35638F222228FCFD00CD8506 /* SignInAndSignUp */,
 				350433E22227C12D00BA1DFA /* AppDelegate.swift */,
-				350433E42227C12D00BA1DFA /* ViewController.swift */,
 				350433E62227C12D00BA1DFA /* Main.storyboard */,
 				350433E92227C12F00BA1DFA /* Assets.xcassets */,
 				350433EB2227C12F00BA1DFA /* LaunchScreen.storyboard */,
 				350433EE2227C12F00BA1DFA /* Info.plist */,
 			);
 			path = XOGO;
+			sourceTree = "<group>";
+		};
+		35638F212228FC8000CD8506 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				35638F1B2228F2D900CD8506 /* Validators.swift */,
+				35638F1D2228F49200CD8506 /* UITextField+Extensions.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+		35638F222228FCFD00CD8506 /* SignInAndSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				350433E42227C12D00BA1DFA /* LoginViewController.swift */,
+				358F39642227E3E400EECB43 /* SignUpViewController.swift */,
+				35638F212228FC8000CD8506 /* Validator */,
+			);
+			path = SignInAndSignUp;
+			sourceTree = "<group>";
+		};
+		3565EA2122293CDD00E54F22 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				35638F23222909E600CD8506 /* HomeViewController.swift */,
+				3565EA1E222927B800E54F22 /* MenuViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		3565EA2222293CEE00E54F22 /* SideMenuViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3565EA2922293D4800E54F22 /* PlayersViewController.swift */,
+				3565EA2322293D2200E54F22 /* AccountViewController.swift */,
+				3565EA2522293D2E00E54F22 /* LibraryViewController.swift */,
+				3565EA2722293D3C00E54F22 /* PlaylistsViewController.swift */,
+				3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */,
+				3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */,
+			);
+			path = SideMenuViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +200,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				350433E52227C12D00BA1DFA /* ViewController.swift in Sources */,
+				3565EA2822293D3C00E54F22 /* PlaylistsViewController.swift in Sources */,
+				35638F1C2228F2D900CD8506 /* Validators.swift in Sources */,
+				358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */,
+				3565EA2A22293D4800E54F22 /* PlayersViewController.swift in Sources */,
+				3565EA2422293D2200E54F22 /* AccountViewController.swift in Sources */,
+				3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */,
+				350433E52227C12D00BA1DFA /* LoginViewController.swift in Sources */,
+				35638F1E2228F49200CD8506 /* UITextField+Extensions.swift in Sources */,
 				350433E32227C12D00BA1DFA /* AppDelegate.swift in Sources */,
+				35638F24222909E600CD8506 /* HomeViewController.swift in Sources */,
+				3565EA2E22293D6600E54F22 /* UpgradeViewController.swift in Sources */,
+				3565EA2622293D2E00E54F22 /* LibraryViewController.swift in Sources */,
+				3565EA20222927B800E54F22 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
