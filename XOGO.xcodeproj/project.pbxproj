@@ -23,6 +23,11 @@
 		3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */; };
 		3565EA2E22293D6600E54F22 /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */; };
 		358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F39642227E3E400EECB43 /* SignUpViewController.swift */; };
+		35B877C0222CFD4000DC75CE /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877BF222CFD4000DC75CE /* LibraryListViewController.swift */; };
+		35B877C2222CFD6A00DC75CE /* PlaylistsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877C1222CFD6A00DC75CE /* PlaylistsListViewController.swift */; };
+		35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */; };
+		35FE5568222D1789002C2086 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FE5567222D1789002C2086 /* LibraryModel.swift */; };
+		35FE5572222E46AD002C2086 /* XOGO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35FE5570222E46AD002C2086 /* XOGO.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
 		3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
 		358F39642227E3E400EECB43 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		35B877BF222CFD4000DC75CE /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
+		35B877C1222CFD6A00DC75CE /* PlaylistsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsListViewController.swift; sourceTree = "<group>"; };
+		35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewController.swift; sourceTree = "<group>"; };
+		35FE5567222D1789002C2086 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
+		35FE5571222E46AD002C2086 /* XOGO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XOGO.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +90,11 @@
 				3565EA2122293CDD00E54F22 /* HomeViewController */,
 				35638F222228FCFD00CD8506 /* SignInAndSignUp */,
 				350433E22227C12D00BA1DFA /* AppDelegate.swift */,
+				35FE5567222D1789002C2086 /* LibraryModel.swift */,
 				350433E62227C12D00BA1DFA /* Main.storyboard */,
 				350433E92227C12F00BA1DFA /* Assets.xcassets */,
 				350433EB2227C12F00BA1DFA /* LaunchScreen.storyboard */,
+				35FE5570222E46AD002C2086 /* XOGO.xcdatamodeld */,
 				350433EE2227C12F00BA1DFA /* Info.plist */,
 			);
 			path = XOGO;
@@ -119,6 +131,9 @@
 		3565EA2222293CEE00E54F22 /* SideMenuViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				35B877BF222CFD4000DC75CE /* LibraryListViewController.swift */,
+				35B877C1222CFD6A00DC75CE /* PlaylistsListViewController.swift */,
+				35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */,
 				3565EA2922293D4800E54F22 /* PlayersViewController.swift */,
 				3565EA2322293D2200E54F22 /* AccountViewController.swift */,
 				3565EA2522293D2E00E54F22 /* LibraryViewController.swift */,
@@ -204,10 +219,15 @@
 				35638F1C2228F2D900CD8506 /* Validators.swift in Sources */,
 				358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */,
 				3565EA2A22293D4800E54F22 /* PlayersViewController.swift in Sources */,
+				35FE5568222D1789002C2086 /* LibraryModel.swift in Sources */,
 				3565EA2422293D2200E54F22 /* AccountViewController.swift in Sources */,
+				35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */,
+				35B877C2222CFD6A00DC75CE /* PlaylistsListViewController.swift in Sources */,
 				3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */,
 				350433E52227C12D00BA1DFA /* LoginViewController.swift in Sources */,
 				35638F1E2228F49200CD8506 /* UITextField+Extensions.swift in Sources */,
+				35B877C0222CFD4000DC75CE /* LibraryListViewController.swift in Sources */,
+				35FE5572222E46AD002C2086 /* XOGO.xcdatamodeld in Sources */,
 				350433E32227C12D00BA1DFA /* AppDelegate.swift in Sources */,
 				35638F24222909E600CD8506 /* HomeViewController.swift in Sources */,
 				3565EA2E22293D6600E54F22 /* UpgradeViewController.swift in Sources */,
@@ -412,6 +432,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		35FE5570222E46AD002C2086 /* XOGO.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				35FE5571222E46AD002C2086 /* XOGO.xcdatamodel */,
+			);
+			currentVersion = 35FE5571222E46AD002C2086 /* XOGO.xcdatamodel */;
+			name = XOGO.xcdatamodeld;
+			path = SideMenuViewControllers/XOGO.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 350433D72227C12D00BA1DFA /* Project object */;
 }

@@ -12,6 +12,8 @@ class HomeViewController: UIViewController {
 
     var emailPassedFromLogin: String?
     
+    @IBOutlet weak var homeTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
@@ -32,7 +34,7 @@ extension HomeViewController: SlideMenuDelegate {
             break
         case 1:
             print("Players\n", terminator: "")
-            self.openViewControllerBasedOnIdentifier("PlayersViewController")
+            self.openViewControllerBasedOnIdentifier("PlayersListViewController")
             break
         case 2:
             print("Account\n", terminator: "")
@@ -40,11 +42,11 @@ extension HomeViewController: SlideMenuDelegate {
             break
         case 3:
             print("Library\n", terminator: "")
-            self.openViewControllerBasedOnIdentifier("LibraryViewController")
+            self.openViewControllerBasedOnIdentifier("LibraryListViewController")
             break
         case 4:
             print("Playlists\n", terminator: "")
-            self.openViewControllerBasedOnIdentifier("PlaylistsViewController")
+            self.openViewControllerBasedOnIdentifier("PlaylistsListViewController")
             break
         case 5:
             print("Realtime\n", terminator: "")
@@ -79,28 +81,6 @@ extension HomeViewController: SlideMenuDelegate {
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.leftBarButtonItem = customBarItem;
     }
-    
-//    func defaultMenuImage() -> UIImage {
-//        var defaultMenuImage = UIImage()
-//
-//        UIGraphicsBeginImageContextWithOptions(CGSize(width: 30, height: 22), false, 0.0)
-//
-//        UIColor.black.setFill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 3, width: 30, height: 1)).fill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 10, width: 30, height: 1)).fill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 17, width: 30, height: 1)).fill()
-//
-//        UIColor.white.setFill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 4, width: 30, height: 1)).fill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 11,  width: 30, height: 1)).fill()
-//        UIBezierPath(rect: CGRect(x: 0, y: 18, width: 30, height: 1)).fill()
-//
-//        defaultMenuImage = UIGraphicsGetImageFromCurrentImageContext()!
-//
-//        UIGraphicsEndImageContext()
-//
-//        return defaultMenuImage;
-//    }
     
     @objc func onSlideMenuButtonPressed(_ sender : UIButton){
         if (sender.tag == 10)
@@ -144,4 +124,29 @@ extension HomeViewController: SlideMenuDelegate {
             sender.isEnabled = true
         }, completion:nil)
     }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = homeTableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath)
+            cell.textLabel?.text = "Library cell"
+            return cell
+        }else if indexPath.row == 1 {
+            let cell = homeTableView.dequeueReusableCell(withIdentifier: "playlistCell", for: indexPath)
+            cell.textLabel?.text = "Playlist cell"
+            return cell
+        }else {
+            let cell = homeTableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
+            cell.textLabel?.text = "Player cell"
+            return cell
+        }
+    }
+    
+    
 }
