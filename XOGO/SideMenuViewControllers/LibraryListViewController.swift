@@ -17,11 +17,13 @@ class LibraryListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToDos()
+        
     }
 
     @IBAction func addLibraryButton(_ sender: Any) {
@@ -47,11 +49,18 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath)
-        cell.textLabel?.text = libraryStored[indexPath.row].mediaName
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryListTableViewCell
+        let data = libraryStored[indexPath.row]
+        cell.mediaNameLabel.text = data.mediaName
+        if let imagePath = data.photo, let image = UIImage(contentsOfFile: imagePath) {
+                    cell.mediaImageView?.image = image
+                
+        }else {
+            cell.mediaImageView.image = UIImage(named: "warning")
+       
+        }
+         return cell
     }
-    
     
 }
 

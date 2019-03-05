@@ -28,6 +28,7 @@
 		35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */; };
 		35FE5568222D1789002C2086 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FE5567222D1789002C2086 /* LibraryModel.swift */; };
 		35FE5572222E46AD002C2086 /* XOGO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35FE5570222E46AD002C2086 /* XOGO.xcdatamodeld */; };
+		35FE5574222E5619002C2086 /* LibraryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FE5573222E5619002C2086 /* LibraryListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewController.swift; sourceTree = "<group>"; };
 		35FE5567222D1789002C2086 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
 		35FE5571222E46AD002C2086 /* XOGO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XOGO.xcdatamodel; sourceTree = "<group>"; };
+		35FE5573222E5619002C2086 /* LibraryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		350433E12227C12D00BA1DFA /* XOGO */ = {
 			isa = PBXGroup;
 			children = (
+				35FE5575222E5624002C2086 /* Cells */,
 				3565EA2222293CEE00E54F22 /* SideMenuViewControllers */,
 				3565EA2122293CDD00E54F22 /* HomeViewController */,
 				35638F222228FCFD00CD8506 /* SignInAndSignUp */,
@@ -142,6 +145,14 @@
 				3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */,
 			);
 			path = SideMenuViewControllers;
+			sourceTree = "<group>";
+		};
+		35FE5575222E5624002C2086 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				35FE5573222E5619002C2086 /* LibraryListTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 				358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */,
 				3565EA2A22293D4800E54F22 /* PlayersViewController.swift in Sources */,
 				35FE5568222D1789002C2086 /* LibraryModel.swift in Sources */,
+				35FE5574222E5619002C2086 /* LibraryListTableViewCell.swift in Sources */,
 				3565EA2422293D2200E54F22 /* AccountViewController.swift in Sources */,
 				35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */,
 				35B877C2222CFD6A00DC75CE /* PlaylistsListViewController.swift in Sources */,

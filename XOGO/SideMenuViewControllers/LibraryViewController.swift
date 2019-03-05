@@ -17,6 +17,8 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var selectMediaImageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    var newPath: URL?
+    var str = Int.random(in: 0..<1000)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,55 @@ class LibraryViewController: UIViewController {
     }
 
     @IBAction func saveButton(_ sender: Any) {
+            saveLibrary()
+            navigationController?.popViewController(animated: true)
+        }
 
+    
+
+}
+
+//ImagePicker Extension -------------------------------------------------------------------------
+
+extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        selectMediaImageView.image = selectedImage
+        
+
+        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        newPath = path.appendingPathComponent("image\(str).jpg")
+        let imageData = selectedImage.jpegData(compressionQuality: 1.0)
+        do {
+            try imageData?.write(to: newPath!, options: .atomic)
+            print(newPath?.path)
+            
+        }catch{
+            print("Unable to save image at document diretory")
+        }
+        
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func imagepressed () {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+}
+
+
+//Coredata functions extension ---------------------------------------------------------------
+
+extension LibraryViewController {
+    
+    func saveLibrary(){
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             let lib = LibraryCore(entity: LibraryCore.entity(), insertInto: context)
             if let nameText = nameField.text {
@@ -40,41 +90,15 @@ class LibraryViewController: UIViewController {
             if let noteText = notesField.text {
                 lib.notes = noteText
             }
+            if let imagepath = newPath {
+                lib.photo = imagepath.path
+                print(imagepath.path)
+            }
             try? context.save()
-            navigationController?.popViewController(animated: true)
         }
-
-        
-//        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-//
-//            let lib = ToDoCore(entity: ToDoCore.entity(), insertInto: context)
-//            if let taskText = taskName.text {
-//                todo.name = taskText
-//                todo.important = importanceSwitch.isOn
-//            }
-//            try? context.save()
-//            navigationController?.popViewController(animated: true)
-//        }
-    }
-
-}
-
-
-extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        selectMediaImageView.image = selectedImage
-        dismiss(animated: true, completion: nil)
-    }
+   
     
-    @objc func imagepressed () {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
-    }
+    
 }
