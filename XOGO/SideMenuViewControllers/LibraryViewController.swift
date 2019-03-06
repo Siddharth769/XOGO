@@ -19,6 +19,7 @@ class LibraryViewController: UIViewController {
     let imagePicker = UIImagePickerController()
     var newPath: URL?
     var str = Int.random(in: 0..<1000)
+    var filename: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,13 +51,17 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         selectMediaImageView.image = selectedImage
         
+        filename = "image\(str).jpg"
+        print(filename!)
 
-        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-        newPath = path.appendingPathComponent("image\(str).jpg")
+        let fileURL = self.getDocumentsDirectory().appendingPathComponent(filename!)
+        
+        print(fileURL)
+        
         let imageData = selectedImage.jpegData(compressionQuality: 1.0)
         do {
-            try imageData?.write(to: newPath!, options: .atomic)
-            print(newPath?.path)
+            try imageData?.write(to: fileURL, options: .atomic)
+            
             
         }catch{
             print("Unable to save image at document diretory")
@@ -64,6 +69,14 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
         
         
         dismiss(animated: true, completion: nil)
+    }
+
+    
+    func getDocumentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
     
     @objc func imagepressed () {
@@ -90,9 +103,9 @@ extension LibraryViewController {
             if let noteText = notesField.text {
                 lib.notes = noteText
             }
-            if let imagepath = newPath {
-                lib.photo = imagepath.path
-                print(imagepath.path)
+            if let imagepath = filename {
+                lib.photo = imagepath
+                print(imagepath)
             }
             try? context.save()
         }
