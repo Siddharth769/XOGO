@@ -39,7 +39,7 @@ class LibraryViewController: UIViewController {
 
 }
 
-//ImagePicker Extension -------------------------------------------------------------------------
+//ImagePicker Extension -------------------------------------------------------------------------------------------
 
 extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -50,19 +50,13 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         selectMediaImageView.image = selectedImage
-        
         filename = "image\(str).jpg"
         print(filename!)
-
         let fileURL = self.getDocumentsDirectory().appendingPathComponent(filename!)
-        
         print(fileURL)
-        
         let imageData = selectedImage.jpegData(compressionQuality: 1.0)
         do {
             try imageData?.write(to: fileURL, options: .atomic)
-            
-            
         }catch{
             print("Unable to save image at document diretory")
         }
@@ -87,7 +81,7 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
 }
 
 
-//Coredata functions extension ---------------------------------------------------------------
+//Coredata functions extension ---------------------------------------------------------------------------------
 
 extension LibraryViewController {
     

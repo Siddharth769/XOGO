@@ -12,6 +12,7 @@
 		350433E82227C12D00BA1DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350433E62227C12D00BA1DFA /* Main.storyboard */; };
 		350433EA2227C12F00BA1DFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350433E92227C12F00BA1DFA /* Assets.xcassets */; };
 		350433ED2227C12F00BA1DFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350433EB2227C12F00BA1DFA /* LaunchScreen.storyboard */; };
+		350B1AFD2230DF140041ABC5 /* PlaylistListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350B1AFC2230DF140041ABC5 /* PlaylistListTableViewCell.swift */; };
 		35638F1C2228F2D900CD8506 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F1B2228F2D900CD8506 /* Validators.swift */; };
 		35638F1E2228F49200CD8506 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F1D2228F49200CD8506 /* UITextField+Extensions.swift */; };
 		35638F24222909E600CD8506 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35638F23222909E600CD8506 /* HomeViewController.swift */; };
@@ -23,6 +24,7 @@
 		3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */; };
 		3565EA2E22293D6600E54F22 /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */; };
 		358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F39642227E3E400EECB43 /* SignUpViewController.swift */; };
+		3598F8D5222FE774008E2886 /* PlaylistCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598F8D4222FE774008E2886 /* PlaylistCreationTableViewCell.swift */; };
 		35B877C0222CFD4000DC75CE /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877BF222CFD4000DC75CE /* LibraryListViewController.swift */; };
 		35B877C2222CFD6A00DC75CE /* PlaylistsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877C1222CFD6A00DC75CE /* PlaylistsListViewController.swift */; };
 		35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */; };
@@ -39,6 +41,7 @@
 		350433E92227C12F00BA1DFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350433EC2227C12F00BA1DFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350433EE2227C12F00BA1DFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		350B1AFC2230DF140041ABC5 /* PlaylistListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistListTableViewCell.swift; sourceTree = "<group>"; };
 		35638F1B2228F2D900CD8506 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		35638F1D2228F49200CD8506 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		35638F23222909E600CD8506 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		3565EA2B22293D5800E54F22 /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
 		3565EA2D22293D6600E54F22 /* UpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
 		358F39642227E3E400EECB43 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3598F8D4222FE774008E2886 /* PlaylistCreationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCreationTableViewCell.swift; sourceTree = "<group>"; };
 		35B877BF222CFD4000DC75CE /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
 		35B877C1222CFD6A00DC75CE /* PlaylistsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistsListViewController.swift; sourceTree = "<group>"; };
 		35B877C3222CFD7E00DC75CE /* PlayersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersListViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +154,9 @@
 		35FE5575222E5624002C2086 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3598F8D4222FE774008E2886 /* PlaylistCreationTableViewCell.swift */,
 				35FE5573222E5619002C2086 /* LibraryListTableViewCell.swift */,
+				350B1AFC2230DF140041ABC5 /* PlaylistListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -230,11 +236,13 @@
 				35638F1C2228F2D900CD8506 /* Validators.swift in Sources */,
 				358F39652227E3E400EECB43 /* SignUpViewController.swift in Sources */,
 				3565EA2A22293D4800E54F22 /* PlayersViewController.swift in Sources */,
+				3598F8D5222FE774008E2886 /* PlaylistCreationTableViewCell.swift in Sources */,
 				35FE5568222D1789002C2086 /* LibraryModel.swift in Sources */,
 				35FE5574222E5619002C2086 /* LibraryListTableViewCell.swift in Sources */,
 				3565EA2422293D2200E54F22 /* AccountViewController.swift in Sources */,
 				35B877C4222CFD7E00DC75CE /* PlayersListViewController.swift in Sources */,
 				35B877C2222CFD6A00DC75CE /* PlaylistsListViewController.swift in Sources */,
+				350B1AFD2230DF140041ABC5 /* PlaylistListTableViewCell.swift in Sources */,
 				3565EA2C22293D5800E54F22 /* RealtimeViewController.swift in Sources */,
 				350433E52227C12D00BA1DFA /* LoginViewController.swift in Sources */,
 				35638F1E2228F49200CD8506 /* UITextField+Extensions.swift in Sources */,

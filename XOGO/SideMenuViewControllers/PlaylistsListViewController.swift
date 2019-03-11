@@ -10,15 +10,22 @@ import UIKit
 
 class PlaylistsListViewController: UIViewController {
 
-    @IBOutlet weak var playlistsTableView: UITableView!
+    @IBOutlet weak var playlistLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+    }
+    
+    
     @IBAction func addPlaylistsButton(_ sender: Any) {
     }
     
 }
+
+

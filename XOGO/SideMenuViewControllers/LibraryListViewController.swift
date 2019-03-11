@@ -14,6 +14,7 @@ class LibraryListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var savePlalistAsset: UIButton!
     @IBOutlet weak var donePlaylist: UIButton!
+    @IBOutlet weak var libraryLabel: UILabel!
     
     let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -33,29 +34,16 @@ class LibraryListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getToDos()
+        libraryLabel.text = "   Library(\(libraryStored.count))"
     }
 
     @IBAction func addLibraryButton(_ sender: Any) {
     }
     
-    @IBAction func savePlaylistAssetButton(_ sender: Any) {
-        assetArray.append(assetName!)
-        print(assetArray)
-        
-    }
-    
-    @IBAction func doneButton(_ sender: Any) {
-        performSegue(withIdentifier: "showAddedLibrarySegue", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showAddedLibrarySegue") {
-            let dest = segue.destination as! PlaylistsViewController
-            dest.imagesNamesArray = assetArray
-        }
-    }
     
 }
+
+// Table view functionality ----------------------------------------------------
 
 extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,6 +71,7 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
         
         if editingStyle == .delete {
             context.delete(libraryStored[indexPath.row])
+            libraryLabel.text = "   Library(\(libraryStored.count))"
             do {
                 try context.save()
                 libraryStored.remove(at: indexPath.row)
@@ -95,6 +84,8 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
 }
+
+// Coredata functions extension ----------------------------------------------------
 
 extension LibraryListViewController {
     
@@ -110,7 +101,7 @@ extension LibraryListViewController {
         }
     }
     
-    
+    // Adding long press functionality to table view to select images to add to playlist
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
@@ -134,5 +125,11 @@ extension LibraryListViewController {
         return documentsDirectory
     }
 
+    func showAlert(for alert: String) {
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
