@@ -9,18 +9,16 @@
     <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="playlistdetail" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistDetail" inverseName="playlist" inverseEntity="PlaylistDetail" syncable="YES"/>
     </entity>
     <entity name="PlaylistDetail" representedClassName="PlaylistDetail" syncable="YES" codeGenerationType="class">
         <attribute name="days" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="playlistdetail" inverseEntity="Playlist" syncable="YES"/>
     </entity>
     <elements>
         <element name="LibraryCore" positionX="-717.6953125" positionY="30.15234375" width="128" height="105"/>
-        <element name="Playlist" positionX="-719.515625" positionY="-132.62109375" width="128" height="90"/>
-        <element name="PlaylistDetail" positionX="-417.21875" positionY="-143.01171875" width="128" height="120"/>
+        <element name="Playlist" positionX="-701.0234375" positionY="-146.7265625" width="128" height="75"/>
+        <element name="PlaylistDetail" positionX="-417.21875" positionY="-143.01171875" width="128" height="105"/>
     </elements>
 </model>

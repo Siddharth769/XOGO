@@ -12,17 +12,20 @@ import CoreData
 class LibraryListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var savePlalistAsset: UIButton!
-    @IBOutlet weak var donePlaylist: UIButton!
     @IBOutlet weak var libraryLabel: UILabel!
+    @IBOutlet weak var doneButtonOutlet: UIButton!
+    @IBOutlet weak var saveButtonOutlet: UIButton!
     
     let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var libraryStored: [LibraryCore] = []
+    var playlistStored: [Playlist] = []
+    
     var url: URL?
-    var assetName: String?
-    var assetArray = [String]()
+    var assetItem: String?
+    var passedPlaylistName: String?
+    var uuidReceived: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +36,37 @@ class LibraryListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getToDos()
+        getLibrary()
         libraryLabel.text = "   Library(\(libraryStored.count))"
+        
     }
 
     @IBAction func addLibraryButton(_ sender: Any) {
     }
     
+    @IBAction func saveButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "addTimeDaysToPlaylistSegue", sender: self)
+    }
     
+    @IBAction func doneButton(_ sender: Any) {
+        savePlaylist()
+        pushToPlaylistView()
+    }
+    
+    func pushToPlaylistView(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PlaylistsListViewController") as! PlaylistsListViewController
+        navigationController?.pushViewController(vc,animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "addTimeDaysToPlaylistSegue"){
+            let dest = segue.destination as! DayTimePickerViewController
+            dest.uuidPassed = uuidReceived
+            dest.assetName = assetItem
+            dest.playlistName = passedPlaylistName
+        }
+    }
 }
 
 // Table view functionality ----------------------------------------------------
@@ -62,7 +88,6 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
         }else {
             cell.mediaImageView.image = UIImage(named: "warning")
         }
-        
          return cell
     }
 
@@ -89,7 +114,7 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension LibraryListViewController {
     
-    func getToDos() {
+    func getLibrary() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
             
             if let libraryData = try? context.fetch(LibraryCore.fetchRequest()) as? [LibraryCore] {
@@ -101,20 +126,38 @@ extension LibraryListViewController {
         }
     }
     
+
+    
     // Adding long press functionality to table view to select images to add to playlist
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
         if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
             let touchPoint = longPressGestureRecognizer.location(in: self.tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
                 print("cell at \(indexPath)")
-                savePlalistAsset.alpha = 1.0
-                savePlalistAsset.isUserInteractionEnabled = true
-                donePlaylist.alpha = 1.0
-                donePlaylist.isUserInteractionEnabled = true
                 let asset = libraryStored[indexPath.row]
                 print(asset.photo!)
-                assetName = asset.photo
+                assetItem = asset.photo
+                saveButtonOutlet.alpha = 1.0
+                doneButtonOutlet.alpha = 1.0
+                saveButtonOutlet.isUserInteractionEnabled = true
+                doneButtonOutlet.isUserInteractionEnabled = true
             }
+        }
+    }
+    
+    
+    func savePlaylist(){
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            let playlist = Playlist(entity: Playlist.entity(), insertInto: context)
+            
+            if let id = uuidReceived {
+                playlist.id = id
+            }
+            if let name = passedPlaylistName {
+                playlist.name = name
+            }
+            try? context.save()
         }
     }
     
