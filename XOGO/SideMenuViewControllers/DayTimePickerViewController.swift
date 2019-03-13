@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class DayTimePickerViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class DayTimePickerViewController: UIViewController{
+    
+    @IBOutlet weak var timepicker: UIPickerView!
     
     var uuidPassed: String?
     var playlistName: String?
@@ -17,16 +19,24 @@ class DayTimePickerViewController: UIViewController, UIPickerViewDataSource, UIP
     var timer: String?
     var timeArray = ["15","30","45","60"]
     var dayss: String = ""
-    
     var playlist: [PlaylistDetail] = []
-    
-    @IBOutlet weak var timepicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(uuidPassed!)
-        print(assetName!)
     }
+  
+    @IBAction func saveButton(_ sender: Any) {
+        savePlaylistItem()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+
+
+// Picker Functions extension ------------------------------------------------------------------------------------
+
+extension DayTimePickerViewController: UIPickerViewDataSource, UIPickerViewDelegate  {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -41,14 +51,8 @@ class DayTimePickerViewController: UIViewController, UIPickerViewDataSource, UIP
         print(timer!)
         return timeArray[row]
     }
-    
-  
-    @IBAction func saveButton(_ sender: Any) {
-        savePlaylistItem()
-        self.navigationController?.popViewController(animated: true)
-    }
-    
 }
+
 
 //Core Data functionality ----------------------------------------------------------------------------------------
 
@@ -72,7 +76,5 @@ extension DayTimePickerViewController {
             try? context.save()
            }
         }
-    
-   
-    
+ 
 }

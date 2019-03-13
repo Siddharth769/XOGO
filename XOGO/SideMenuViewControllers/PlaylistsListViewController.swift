@@ -11,12 +11,12 @@ import CoreData
 
 class PlaylistsListViewController: UIViewController {
 
-    @IBOutlet weak var playlistLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    
     let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    @IBOutlet weak var playlistLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+
     var playlistStored: [Playlist] = []
     var playlistDetail: [PlaylistDetail] = []
     
@@ -31,12 +31,28 @@ class PlaylistsListViewController: UIViewController {
         playlistLabel.text = "   Playlists(\(playlistStored.count))"
         tableView.reloadData()
     }
-    
+   
+}
+
+//Actions functionality ----------------------------------------------------------------------------------------
+
+extension PlaylistsListViewController {
     
     @IBAction func addPlaylistsButton(_ sender: Any) {
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showPlaylistFromListSegue") {
+            let dest = segue.destination as! PlaylistViewViewController
+            let row = (sender as! NSIndexPath).row
+            let rowPassed = playlistStored[row]
+            dest.rowReceived = rowPassed
+        }
+    }
 }
+
+
+//Table View functionality ----------------------------------------------------------------------------------------
 
 extension PlaylistsListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -69,19 +85,10 @@ extension PlaylistsListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "showPlaylistFromListSegue", sender: indexPath)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "showPlaylistFromListSegue") {
-            let dest = segue.destination as! PlaylistViewViewController
-            let row = (sender as! NSIndexPath).row
-            let rowPassed = playlistStored[row]
-            dest.rowReceived = rowPassed
-        }
-    }
-    
-  
-    
+
 }
+
+//Core Data functionality ----------------------------------------------------------------------------------------
 
 extension PlaylistsListViewController {
     
@@ -96,4 +103,6 @@ extension PlaylistsListViewController {
         }
     }
 }
+
+
 

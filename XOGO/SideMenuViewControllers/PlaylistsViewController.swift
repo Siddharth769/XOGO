@@ -21,22 +21,26 @@ class PlaylistsViewController: UIViewController {
  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(uuid)
     }
+}
 
+
+// Actions --------------------------------------------------------------------------------------------------------
+
+extension PlaylistsViewController {
+    
     @IBAction func addLibraryImageAssetButton(_ sender: Any) {
         if playListNameField.text == ""{
             showAlert(for: "Please enter playlist name first")
         }else {
             self.performSegue(withIdentifier: "showLibraryFromPlaylistSegue", sender: self )
-
+            
         }
     }
     
     @IBAction func saveButton(_ sender: Any) {
-        
     }
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showLibraryFromPlaylistSegue") {
             let dest = segue.destination as! LibraryListViewController

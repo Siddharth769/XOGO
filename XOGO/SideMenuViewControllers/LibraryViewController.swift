@@ -47,6 +47,7 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
+    // Used relative path to get doc directory as sandboxing changes paths on each simultaion.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         selectMediaImageView.image = selectedImage
@@ -60,7 +61,6 @@ extension LibraryViewController: UINavigationControllerDelegate, UIImagePickerCo
         }catch{
             print("Unable to save image at document diretory")
         }
-        
         
         dismiss(animated: true, completion: nil)
     }
@@ -104,8 +104,4 @@ extension LibraryViewController {
             try? context.save()
         }
     }
-    
-   
-    
-    
 }

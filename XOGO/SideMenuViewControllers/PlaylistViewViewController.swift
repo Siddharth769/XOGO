@@ -11,30 +11,42 @@ import CoreData
 
 class PlaylistViewViewController: UIViewController {
 
+    let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var titleName: UILabel!
+    
+    
     var rowReceived: Playlist?
     var playlistDetailForParticulatPlaylist: [PlaylistDetail] = []
     var playlistAssetsInTotal: [PlaylistDetail] = []
     var url: URL?
     
-    let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(rowReceived)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        titleName.text = rowReceived?.name
         getPlaylistAssets()
     
     }
 
+
+
+    
+}
+
+//Core Data functionality ----------------------------------------------------------------------------------------
+
+extension PlaylistViewViewController {
+    
+    //Get playlist details matching with the playlist id passed from playlist entity.
     func getPlaylistAssets() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            
+        
             let request: NSFetchRequest<PlaylistDetail> = PlaylistDetail.fetchRequest()
             request.predicate = NSPredicate(format: "id == %@", rowReceived!.id!)
             request.returnsObjectsAsFaults = false
@@ -42,7 +54,7 @@ class PlaylistViewViewController: UIViewController {
                 playlistDetailForParticulatPlaylist = try context.fetch(request)
                 print(playlistDetailForParticulatPlaylist)
             } catch {
-                print("There was an error fetching CST Project Details.")
+                print("There was an error fetching matching entries.")
             }
         }
     }
@@ -53,9 +65,10 @@ class PlaylistViewViewController: UIViewController {
         let documentsDirectory = paths[0]
         return documentsDirectory
     }
-
-    
 }
+
+
+//Table View functionality ----------------------------------------------------------------------------------------
 
 extension PlaylistViewViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -95,6 +108,4 @@ extension PlaylistViewViewController: UITableViewDataSource, UITableViewDelegate
             }
         }
     }
-    
-    
 }

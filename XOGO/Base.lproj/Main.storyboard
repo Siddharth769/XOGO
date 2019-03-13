@@ -816,7 +816,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="x1j-cn-n7p"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -906,6 +906,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="HeY-Wn-UBc" id="zGk-sK-kL4"/>
+                        <outlet property="titleName" destination="mWf-IY-tZc" id="S6j-kq-8NJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xh9-jW-dUq" userLabel="First Responder" sceneMemberID="firstResponder"/>

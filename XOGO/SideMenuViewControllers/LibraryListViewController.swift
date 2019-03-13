@@ -11,17 +11,16 @@ import CoreData
 
 class LibraryListViewController: UIViewController {
 
+    let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var libraryLabel: UILabel!
     @IBOutlet weak var doneButtonOutlet: UIButton!
     @IBOutlet weak var saveButtonOutlet: UIButton!
     
-    let appdelegateObj: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var libraryStored: [LibraryCore] = []
-    var playlistStored: [Playlist] = []
-    
+    var playlistStored: [Playlist] = []    
     var url: URL?
     var assetItem: String?
     var passedPlaylistName: String?
@@ -41,6 +40,12 @@ class LibraryListViewController: UIViewController {
         
     }
 
+}
+
+// Actions ----------------------------------------------------------------------------------------------------
+
+extension LibraryListViewController {
+    
     @IBAction func addLibraryButton(_ sender: Any) {
     }
     
@@ -69,7 +74,7 @@ class LibraryListViewController: UIViewController {
     }
 }
 
-// Table view functionality ----------------------------------------------------
+// Table view functionality ----------------------------------------------------------------------------------------
 
 extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,7 +115,7 @@ extension LibraryListViewController: UITableViewDataSource, UITableViewDelegate 
     
 }
 
-// Coredata functions extension ----------------------------------------------------
+// Coredata functions extension ------------------------------------------------------------------------------------
 
 extension LibraryListViewController {
     
